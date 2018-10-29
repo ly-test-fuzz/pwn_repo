@@ -33,6 +33,7 @@ def show(id):
 	p.recvuntil("is ")
 	text = p.recvuntil("\n" , drop = "")
 	return text[:-1]
+	
 size = 0x50
 next_size = 0x80
 target_addr = 0x602120 
