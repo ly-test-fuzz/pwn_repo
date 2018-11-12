@@ -12,7 +12,7 @@ def add(size , content):
 	p.sendlineafter(">>\n" , "1")
 	p.sendlineafter("128)\n" , str(size))
 	p.sendlineafter("content:\n" , content)
-	p.recvuntil("the id is ")
+	p.recvuntil("the id is ") 
 	# print p.recv(2) + "-------" + content
 
 
