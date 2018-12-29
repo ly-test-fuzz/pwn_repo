@@ -1,7 +1,7 @@
 from pwn import *
 
 # p = process("./when_did_you_born")
-p = remote("111.198.29.45" , 30287)
+p = remote("111.198.29.45" , 30875)
 elf = ELF("./when_did_you_born")
 
 birth = 0x786
