@@ -1,5 +1,5 @@
 from pwn import *
-from string import printable
+
 elf = ELF("./vuln")
 canary = ""
 
