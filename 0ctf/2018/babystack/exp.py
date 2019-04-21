@@ -9,7 +9,7 @@ debug        = 1
 if debug:
       p = process(fpath)
 else:
-      p = process("pwn.jarvisoj.com",9876)
+      p = remote("pwn.jarvisoj.com",9876)
 
 elf = ELF(fpath)
 rop = ROP(fpath)
